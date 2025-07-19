@@ -1,21 +1,210 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <title>Chirag Mehta</title>
-</head>
-
-<body>
-      <h1>Chirag Mehta Portfolio</h1>
-  <h2>I'm a Web Developer</h2>
-  <hr />
-  <h3><a href="./public/movie-ranking.html">Movie Ranking Project</a></h3>
-  <img src="./assets/Chirag Fav Movies.png" height="200" alt="movie ranking project preview"/>
-  <h3><a href="./public/birthday-invite.html">Birthday Invite Project</a></h3>
-  <img src="./assets/Chirag Birthday.png" height="200" alt="birthday invite project preview"/>
-  <hr />
-  <a href="./public/about.html">About Me</a>
-  <a href="./public/contact.html">Contact Me</a>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chirag Mehta - Software Engineer</title>
     
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="text-slate-400 antialiased">
+
+    <!-- Interactive Canvas Background -->
+    <canvas id="interactive-bg"></canvas>
+
+    <!-- Main Container -->
+    <div class="mx-auto min-h-screen max-w-screen-xl px-6 py-12 font-sans md:px-12 md:py-20 lg:px-24 lg:py-0">
+        <div class="lg:flex lg:justify-between lg:gap-4">
+            
+            <!-- Left Column (Header) -->
+            <header class="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24">
+                <div>
+                    <div class="flex items-center gap-4">
+                        <h1 class="text-4xl font-bold tracking-tight text-slate-200 sm:text-5xl">
+                            <a href="/">Chirag Mehta</a>
+                        </h1>
+                        <!-- Rounded Square Photo -->
+                        <img class="h-16 w-16 rounded-lg object-cover" src="chirag pfp.JPG" alt="Chirag Mehta ka photo">
+                    </div>
+                    <h2 class="mt-3 text-lg font-medium tracking-tight text-slate-200 sm:text-xl">
+                        Software Engineer
+                    </h2>
+                    <p class="mt-4 max-w-xs leading-normal">
+                       BD Associate @OneStopESG | Climate Talks | Iot & Robotics | Web Developer | Video Editor | Tech Enthusiast
+                    </p>
+
+                    <!-- Navigation -->
+                    <nav class="nav hidden lg:block" aria-label="In-page navigation">
+                        <ul class="mt-16 w-max">
+                            <li><a class="group flex items-center py-3 nav-link active" href="#about">
+                                <span class="nav-indicator mr-4 h-px w-8 bg-slate-600 transition-all group-hover:w-16 group-hover:bg-slate-200 group-focus-visible:w-16 group-focus-visible:bg-slate-200 motion-reduce:transition-none"></span>
+                                <span class="nav-text text-xs font-bold uppercase tracking-widest text-slate-500 group-hover:text-slate-200 group-focus-visible:text-slate-200">About Me</span>
+                            </a></li>
+                            <li><a class="group flex items-center py-3 nav-link" href="#experience">
+                                <span class="nav-indicator mr-4 h-px w-8 bg-slate-600 transition-all group-hover:w-16 group-hover:bg-slate-200 group-focus-visible:w-16 group-focus-visible:bg-slate-200 motion-reduce:transition-none"></span>
+                                <span class="nav-text text-xs font-bold uppercase tracking-widest text-slate-500 group-hover:text-slate-200 group-focus-visible:text-slate-200">Experience</span>
+                            </a></li>
+                            <li><a class="group flex items-center py-3 nav-link" href="#projects">
+                                <span class="nav-indicator mr-4 h-px w-8 bg-slate-600 transition-all group-hover:w-16 group-hover:bg-slate-200 group-focus-visible:w-16 group-focus-visible:bg-slate-200 motion-reduce:transition-none"></span>
+                                <span class="nav-text text-xs font-bold uppercase tracking-widest text-slate-500 group-hover:text-slate-200 group-focus-visible:text-slate-200">Projects</span>
+                            </a></li>
+                        </ul>
+                    </nav>
+                </div>
+                
+                <!-- Social Media Links -->
+                <ul class="ml-1 mt-8 flex items-center" aria-label="Social media">
+                    <li class="mr-5 text-xs"><a class="block hover:text-slate-200" href="https://github.com/chirag-mehta-0008" target="_blank" rel="noreferrer noopener"><span class="sr-only">GitHub</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="h-6 w-6" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8Z"></path></svg></a></li>
+                    <li class="mr-5 text-xs"><a class="block hover:text-slate-200" href="https://www.linkedin.com/in/chirag-mehta-a36867344/" target="_blank" rel="noreferrer noopener"><span class="sr-only">LinkedIn</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-6 w-6" aria-hidden="true"><path d="M20.5 2h-17A1.5 1.5 0 0 0 2 3.5v17A1.5 1.5 0 0 0 3.5 22h17a1.5 1.5 0 0 0 1.5-1.5v-17A1.5 1.5 0 0 0 20.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 1 1 8.25 6.5 1.75 1.75 0 0 1 6.5 8.25zM19 19h-3v-4.75c0-1.4-1.2-2.5-2.5-2.5S11 12.85 11 14.25V19h-3v-9h2.9v1.3a3.11 3.11 0 0 1 2.6-1.3c2.2 0 4 1.8 4 4z"></path></svg></a></li>
+                    <li class="mr-5 text-xs"><a class="block hover:text-slate-200" href="https://x.com/Chirag_Mehtaaa" target="_blank" rel="noreferrer noopener"><span class="sr-only">Twitter</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="h-6 w-6"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg></a></li>
+                </ul>
+            </header>
+
+            <!-- Right Column (Main Content) -->
+            <main id="content" class="pt-24 lg:w-1/2 lg:py-24">
+                
+                <!-- About Section -->
+                <section id="about" class="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24" aria-label="About me">
+                    <div class="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
+                        <h2 class="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only">Mere Baare Mein</h2>
+                    </div>
+                    <div>
+                        <p class="mb-4">Hi, I’m Chirag Mehta, a first-year B.Tech Computer Science Engineering student with a strong passion for IoT, robotics, and programming. I have hands-on experience in C and Python and enjoy developing software solutions. Additionally, I use HTML to create engaging web-based projects.</p>
+                        <p class="mb-4">One of my proudest achievements is developing an IoT-based project using Arduino Uno, which sparked my interest in combining hardware and software. I’m also a content creator and editor, running a YouTube channel, chiruYT, where I share diverse content. One of my videos has gained over 28,000 views, inspiring me to continue producing quality material.
+
+In addition to content creation, I am a graphic designer, using my creativity to design visuals for my projects. I also have experience as an esports player, where I’ve learned the value of teamwork and strategic thinking.
+</p>
+                        <p>I’m proactive, always eager to learn, and actively involved in my college’s club culture. I enjoy collaborating with peers on innovative projects and seeking new challenges to grow both personally and professionally.
+
+Feel free to connect with me if you’d like to discuss IoT, robotics, content creation, design, or any exciting opportunities!</p>
+                    </div>
+                </section>
+
+                <!-- Experience Section -->
+                <section id="experience" class="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24" aria-label="Work experience">
+                    <div class="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
+                        <h2 class="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only">About me</h2>
+                    </div>
+                    <div>
+                        <ol class="group/list">
+                            <!-- Experience Item 1 -->
+                            <li class="mb-12">
+                                <div class="group relative grid pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
+                                    <div class="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-slate-800/50 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg"></div>
+                                    <header class="z-10 mb-2 mt-1 text-xs font-semibold uppercase tracking-wide text-slate-500 sm:col-span-2" aria-label="2024 to Present">From June 2025</header>
+                                    <div class="z-10 sm:col-span-6">
+                                        <h3 class="font-medium leading-snug text-slate-200">
+                                            <div><a class="inline-flex items-baseline font-medium leading-tight text-slate-200 hover:text-teal-300 focus-visible:text-teal-300 group/link text-base" href="#" target="_blank" rel="noreferrer noopener"><span>BD Associate @OnesStop ESG</span></a></div>
+                                        </h3>
+                                        <p class="mt-2 text-sm leading-normal">As a BD Associate at OneStop ESG, I actively contribute to expanding the organization’s reach by conducting targeted market research on emerging climate-tech and ESG trends. I support outreach efforts by identifying and connecting with potential solution providers, ecosystem partners, and collaborators. Additionally, I ensure the smooth management of the world’s largest ESG solutions providers marketplace by listing and maintaining accurate records.</p>
+                                        <ul class="mt-2 flex flex-wrap" aria-label="Technologies used">
+                                            <li class="mr-1.5 mt-2"><div class="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">Buisness Development</div></li>
+                                            <li class="mr-1.5 mt-2"><div class="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">Market Research</div></li>
+                                            
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <!-- Experience Item 2 -->
+                            <li class="mb-12">
+                                <div class="group relative grid pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
+                                    <div class="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-slate-800/50 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg"></div>
+                                    <header class="z-10 mb-2 mt-1 text-xs font-semibold uppercase tracking-wide text-slate-500 sm:col-span-2" aria-label="2020 to 2024">From January 2025</header>
+                                    <div class="z-10 sm:col-span-6">
+                                        <h3 class="font-medium leading-snug text-slate-200">
+                                            <div><a class="inline-flex items-baseline font-medium leading-tight text-slate-200 hover:text-teal-300 focus-visible:text-teal-300 group/link text-base" href="#" target="_blank" rel="noreferrer noopener"><span>
+Visual Designer & Creative Writer @Climate Talks</span></a></div>
+                                        </h3>
+                                        <p class="mt-2 text-sm leading-normal">As a Visual Designer & Creative Writer, I contribute to the organization’s communication strategy by combining strong visual design with clear, impactful writing. I create engaging social media creatives, posters, and digital assets that support our climate-focused messaging. I also write compelling captions, articles, and outreach materials that help communicate climate-related topics to a broader audience.</p>
+                                        <ul class="mt-2 flex flex-wrap" aria-label="Technologies used">
+                                            <li class="mr-1.5 mt-2"><div class="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">Graphic Design</div></li>
+                                            <li class="mr-1.5 mt-2"><div class="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">Content Writer</div></li>
+                                        
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                        </ol>
+                        <div class="mt-12">
+                            <a class="inline-flex items-baseline font-medium leading-tight text-slate-200 hover:text-teal-300 focus-visible:text-teal-300 group/link text-base" href="/resume.pdf" target="_blank" rel="noreferrer noopener">
+                                <span>See My Full Resume
+                                    <span class="inline-block">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="inline-block h-4 w-4 shrink-0 transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1 group-focus-visible/link:-translate-y-1 group-focus-visible/link:translate-x-1 motion-reduce:transition-none ml-1 translate-y-px" aria-hidden="true">
+                                            <path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clip-rule="evenodd"></path>
+                                        </svg>
+                                    </span>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Projects Section -->
+                <section id="projects" class="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24" aria-label="Selected projects">
+                    <div class="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
+                        <h2 class="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only">Projects</h2>
+                    </div>
+                    <div>
+                        <ul class="group/list">
+                            <!-- Project Item 1 -->
+                            <li class="mb-12">
+                                <div class="group relative grid gap-4 pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
+                                    <div class="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-slate-800/50 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg"></div>
+                                    <div class="z-10 sm:order-2 sm:col-span-6">
+                                        <h3><a class="inline-flex items-baseline font-medium leading-tight text-slate-200 hover:text-teal-300 focus-visible:text-teal-300 group/link text-base" href="https://www.linkedin.com/posts/chirag-mehta-a36867344_iot-homeautomation-esp8266-ugcPost-7303169559337799680-7ceG?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFZEuwoBiuadXiHFv0UXandWdgHF6tL2gOw" target="_blank" rel="noreferrer noopener"><span>Home Automation System</span></a></h3>
+                                        <p class="mt-2 text-sm leading-normal">I built a Home Automation System that allows remote control via Wi-Fi, powered by an ESP8266 Web Server.
+
+This project gave me hands-on experience in IoT, web server integration, and embedded systems—all in my first year of B.Tech CSE.
+
+This is just the beginning, and I'm eager to explore more innovations in IoT and automation.</p>
+                                    </div>
+                                    <img alt="Spotify Profile app" loading="lazy" width="200" height="48" decoding="async" data-nimg="1" class="rounded border-2 border-slate-200/10 transition group-hover:border-slate-200/30 sm:order-1 sm:col-span-2 sm:translate-y-1" style="color:transparent" src="p1.png">
+                                </div>
+                            </li>
+                            <!-- Project Item 2 -->
+                            <li class="mb-12">
+                                <div class="group relative grid gap-4 pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
+                                    <div class="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-slate-800/50 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg"></div>
+                                    <div class="z-10 sm:order-2 sm:col-span-6">
+                                        <h3><a class="inline-flex items-baseline font-medium leading-tight text-slate-200 hover:text-teal-300 focus-visible:text-teal-300 group/link text-base" href="https://www.linkedin.com/posts/chirag-mehta-a36867344_iot-raspberrypi-techfornature-ugcPost-7314011491131703296-8sQP?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFZEuwoBiuadXiHFv0UXandWdgHF6tL2gOw" target="_blank" rel="noreferrer noopener"><span>🌱 Bridging Nature and Technology – One Emotion at a Time! 🌱</span></a></h3>
+                                        <p class="mt-2 text-sm leading-normal">Excited to share my latest IoT-based project that brings real-time emotional feedback from plants and soil to life!
+
+Using:
+
+🔹Raspberry Pi Pico
+🔹OLED Display
+🔹Soil Moisture Sensor
+
+As water is added to the soil, the system instantly reads moisture levels and visually represents the plant's emotions on the OLED screen through dynamic emojis—from thirsty to happy!
+
+ It also displays live water percentage, making plant care more intuitive and engaging.
+
+This blend of emotion-driven UI and real-time sensor data aims to enhance how we interact with and understand our environment through IoT.
+
+Here’s a quick demo in the video below!
+
+Open to feedback, suggestions, and collaborations </p>
+                                    </div>
+                                    <img alt="E-commerce Platform" loading="lazy" width="200" height="48" decoding="async" data-nimg="1" class="rounded border-2 border-slate-200/10 transition group-hover:border-slate-200/30 sm:order-1 sm:col-span-2 sm:translate-y-1" style="color:transparent" src="p2.png">
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+                
+               
+
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+
 </body>
 </html>

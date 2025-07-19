@@ -1,0 +1,41 @@
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #0f172a; /* slate-900 */
+}
+
+/* Custom text selection color to fix the white block issue */
+::selection {
+  background-color: rgba(45, 212, 191, 0.2) !important; 
+  color: #e2e8f0 !important;
+}
+
+/* Style for the canvas background */
+#interactive-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Place it behind all other content */
+}
+
+.nav-link.active > .nav-indicator {
+    width: 4rem;
+    background-color: rgba(45, 212, 191, 0.2); /* Semi-transparent teal to match your theme */
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.nav-link.active > .nav-text {
+    color: #e2e8f0;
+}
+/* Styles for smooth scroll-in animation */
+main > section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+main > section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
